@@ -340,16 +340,16 @@ class WeatherLifeApp {
                 description: `🌡️ ${Math.round(current.temperature)}°C | ${current.sky}\n\n${topIndices}`,
                 imageUrl: 'https://via.placeholder.com/800x400?text=Weather+Life+Assistant',
                 link: {
-                    mobileWebUrl: 'https://kakao-mcp.onrender.com/',
-                    webUrl: 'https://kakao-mcp.onrender.com/',
+                    mobileWebUrl: 'https://kakaomcp.onrender.com/',
+                    webUrl: 'https://kakaomcp.onrender.com/',
                 },
             },
             buttons: [
                 {
                     title: '자세히 보기',
                     link: {
-                        mobileWebUrl: 'https://kakao-mcp.onrender.com/',
-                        webUrl: 'https://kakao-mcp.onrender.com/',
+                        mobileWebUrl: 'https://kakaomcp.onrender.com/',
+                        webUrl: 'https://kakaomcp.onrender.com/',
                     },
                 },
             ],
