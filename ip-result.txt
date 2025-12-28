@@ -1,0 +1,29 @@
+{
+  "ipVersion": 4,
+  "ipAddress": "222.237.41.44",
+  "latitude": 37.5561,
+  "longitude": 126.975,
+  "countryName": "South Korea",
+  "countryCode": "KR",
+  "capital": "Seoul",
+  "phoneCodes": [
+    82
+  ],
+  "timeZones": [
+    "Asia/Seoul"
+  ],
+  "zipCode": "06030",
+  "cityName": "Seoul (Namdaemunno 5(o)-ga)",
+  "regionName": "Seoul",
+  "continent": "Asia",
+  "continentCode": "AS",
+  "currencies": [
+    "KRW"
+  ],
+  "languages": [
+    "ko"
+  ],
+  "asn": "9318",
+  "asnOrganization": "SK Broadband Co Ltd",
+  "isProxy": false
+}

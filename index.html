@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="카카오맵과 기상청 API를 활용한 날씨 기반 생활 도우미 플랫폼. 빨래, 세차, 산책 등 다양한 생활 지수를 제공합니다.">
+  <meta name="keywords" content="날씨, 생활지수, 기상청, 카카오맵, 빨래지수, 세차지수">
+  <meta name="author" content="Weather Life Assistant">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="날씨 기반 생활 도우미">
+  <meta property="og:description" content="오늘의 날씨로 생활을 더 스마트하게!">
+  <meta property="og:type" content="website">
+
+  <title>날씨 기반 생활 도우미 | Weather Life Assistant</title>
+
+  <!-- Pretendard 폰트 -->
+  <link rel="stylesheet" as="style" crossorigin
+    href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+
+  <!-- 스타일시트 -->
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- 카카오맵 SDK -->
+  <script type="text/javascript"
+    src="//dapi.kakao.com/v2/maps/sdk.js?appkey=71ba545896d400bc71107513f0c425ef&libraries=services"></script>
+
+  <!-- 카카오 JavaScript SDK -->
+  <script src="https://t1.kakaocdn.net/kakao_js_sdk/2.7.2/kakao.min.js"
+    integrity="sha384-TiCUE00h649CAMonG018J2ujOgDKW/kVWlChEuu4jK2vxfAAD0eZxzCKakxg55G4"
+    crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <div class="container">
+    <!-- 헤더 -->
+    <header class="header">
+      <div class="header-content">
+        <div class="logo">
+          <span class="logo-icon">🌤️</span>
+          <div class="logo-text">
+            <h1>날씨 기반 생활 도우미</h1>
+            <p>오늘의 날씨로 생활을 더 스마트하게</p>
+          </div>
+        </div>
+        <div class="current-time">
+          <div id="currentTime">로딩 중...</div>
+        </div>
+      </div>
+    </header>
+
+    <!-- 검색 영역 -->
+    <section class="search-section">
+      <div class="search-container">
+        <input type="text" id="searchInput" class="search-input" placeholder="지역, 주소, 장소를 검색하세요 (예: 서울, 강남역, 제주도)">
+        <button id="searchBtn" class="btn btn-primary">
+          🔍 검색
+        </button>
+        <button id="currentLocationBtn" class="btn btn-secondary">
+          📍 현재 위치
+        </button>
+      </div>
+    </section>
+
+    <!-- 메인 레이아웃 -->
+    <div class="main-layout">
+      <!-- 지도 패널 -->
+      <div class="map-panel glass">
+        <div id="map"></div>
+      </div>
+
+      <!-- 날씨 카드 -->
+      <div id="weatherCard" class="weather-card glass hidden">
+        <div class="weather-header">
+          <h2 class="location-name" id="locationName">위치를 선택하세요</h2>
+        </div>
+
+        <div class="weather-main">
+          <div class="weather-icon" id="weatherIcon">🌤️</div>
+          <div>
+            <div class="temperature">
+              <span id="temperature">--</span>°C
+            </div>
+            <div class="weather-description" id="weatherDescription">-</div>
+          </div>
+        </div>
+
+        <div class="weather-details">
+          <div class="detail-item">
+            <span class="detail-label">💧 습도</span>
+            <span class="detail-value" id="humidity">--%</span>
+          </div>
+          <div class="detail-item">
+            <span class="detail-label">☔ 강수확률</span>
+            <span class="detail-value" id="rainProbability">--%</span>
+          </div>
+          <div class="detail-item">
+            <span class="detail-label">💨 풍속</span>
+            <span class="detail-value" id="windSpeed">--m/s</span>
+          </div>
+          <div class="detail-item">
+            <span class="detail-label">🧭 풍향</span>
+            <span class="detail-value" id="windDirection">-</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 로딩 -->
+    <div id="loading" class="loading hidden">
+      <div class="spinner"></div>
+      <p>날씨 정보를 불러오는 중...</p>
+    </div>
+
+    <!-- 생활 지수 섹션 -->
+    <section id="indicesSection" class="indices-section hidden">
+      <h2 class="section-title">
+        <span>📊</span>
+        생활 지수
+      </h2>
+      <div id="indicesGrid" class="indices-grid">
+        <!-- 생활 지수 카드들이 동적으로 추가됩니다 -->
+      </div>
+    </section>
+
+    <!-- 공유 섹션 -->
+    <section id="shareSection" class="share-section hidden">
+      <button id="shareBtn" class="btn btn-share">
+        💬 카카오톡으로 공유하기
+      </button>
+    </section>
+  </div>
+
+  <!-- 스크립트 -->
+  <script src="utils/coord-converter.js?v=7"></script>
+  <script src="utils/date-helper.js?v=7"></script>
+  <script src="weather-api.js?v=7"></script>
+  <script src="life-indices.js?v=7"></script>
+  <script src="kakao-map.js?v=7"></script>
+  <script src="app.js?v=7"></script>
+</body>
+
+</html>
